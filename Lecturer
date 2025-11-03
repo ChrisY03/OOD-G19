@@ -1,6 +1,9 @@
 import java.util.List
 
 public class lecturer {
+    private String name;
+    private List<String> modulesTeaching;
+
     public lecturer(){
 
     }
@@ -9,5 +12,20 @@ public class lecturer {
         this.modulesTeaching = modulesTeaching;
     }
 
-    public List<String> getModulesTeaching { return modules}
+    public String getname {return name};
+
+    public List<String> getModulesTeaching { return modules};
+
+    public void viewTimetable() {
+        System.out.println("Lecturer: " + name);
+        System.out.println("Modules teaching:");
+
+        if (modulesTeaching == null || modulesTeaching.isEmpty()) {
+            System.out.println("No modules assigned");
+        } else {
+            for (String module : modulesTeaching) {
+                System.out.println(module);
+            }
+        }
+    }
 }
