@@ -1,0 +1,13 @@
+import java.util.List
+
+public class lecturer {
+    public lecturer(){
+
+    }
+    public lecturer(String name, List<String> modulesTeaching) {
+        this.name = name;
+        this.modulesTeaching = modulesTeaching;
+    }
+
+    public List<String> getModulesTeaching { return modules}
+}
