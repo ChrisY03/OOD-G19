@@ -1,0 +1,28 @@
+public class TimetableEntry {
+    private String moduleCode;
+    private String lecturerName;
+    private String roomId;
+    private String day;
+    private String time;
+
+    public TimetableEntry(){
+
+    }
+
+    public TimetableEntry(String moduleCode, String lecturerName, String roomId, String day, String time) {
+        this.moduleCode = moduleCode;
+        this.lecturerName = lecturerName;
+        this.roomId = roomId;
+        this.day = day;
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Module: " + moduleCode +
+                " | Lecturer:  " + lecturerName +
+                " | Room: " + roomId +
+                " | Day: " + day +
+                " | Time: " + time;
+    }
+}
