@@ -26,6 +26,7 @@ public abstract class User {
         return userType;
      }
      // password doesn't get a getter because of security and encapsulation
+     // no other class or user should be able to read it directly once its stored
      public boolean idLogin(String identered, String passwordEntered) {
         return this.id.equals(identered) && password.equals(passwordEntered); //Checks if inputted password matches user password;
      }
