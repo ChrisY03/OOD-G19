@@ -6,18 +6,20 @@ public class Module {
     private String moduleCode;
     private int moduleLecHours;
     private int moduleLabHours;
-    //array here for students
+    private int tutHours;
+    
 
     public Module(){
 
     }
 
     //Constructor
-    public Module(String moduleName, String moduleCode, int moduleLecHours, int moduleLabours){
+    public Module(String moduleName, String moduleCode, int moduleLecHours, int moduleLabours, int tutHours){
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.moduleLecHours = moduleLecHours;
         this.moduleLabHours = moduleLabours;
+        this.tutHours = tutHours;
     }
 
     //Setters
