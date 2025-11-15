@@ -1,14 +1,40 @@
+/**
+ * Represents a single scheduled class in the timetable.
+ * Stores details such as the module, lecturer, room, day, and time.
+ */
 public class TimetableEntry {
+
+    /** The code of the module. */
     private String moduleCode;
+
+    /** The name of the lecturer. */
     private String lecturerName;
+
+    /** The ID of the room where the class takes place. */
     private String roomId;
+
+    /** The day of the week the class is scheduled for. */
     private String day;
+
+    /** The time the class begins. */
     private String time;
 
+    /**
+     * Creates an empty TimetableEntry object.
+     * Allows the entry to be created before all details are known.
+     */
     public TimetableEntry(){
-
     }
 
+    /**
+     * Creates a TimetableEntry object.
+     *
+     * @param moduleCode the module code
+     * @param lecturerName the lecturer teaching the class
+     * @param roomId the room where the class is held
+     * @param day the day the class takes place
+     * @param time the time the class begins
+     */
     public TimetableEntry(String moduleCode, String lecturerName, String roomId, String day, String time) {
         this.moduleCode = moduleCode;
         this.lecturerName = lecturerName;
@@ -17,10 +43,50 @@ public class TimetableEntry {
         this.time = time;
     }
 
+    /**
+     * @return the module code for this class
+     */
+    public String getModuleCode() {
+        return moduleCode;
+    }
+
+    /**
+     * @return the name of the lecturer
+     */
+    public String getLecturerName() {
+        return lecturerName;
+    }
+
+    /**
+     * @return the room ID
+     */
+    public String getRoomId() {
+        return roomId;
+    }
+
+    /**
+     * @return the day of the class
+     */
+    public String getDay() {
+        return day;
+    }
+
+    /**
+     * @return the time of the class
+     */
+    public String getTime() {
+        return time;
+    }
+
+    /**
+     * Returns a readable formatted version of the timetable entry.
+     *
+     * @return a string containing module, lecturer, room, day and time
+     */
     @Override
     public String toString() {
         return "Module: " + moduleCode +
-                " | Lecturer:  " + lecturerName +
+                " | Lecturer: " + lecturerName +
                 " | Room: " + roomId +
                 " | Day: " + day +
                 " | Time: " + time;
