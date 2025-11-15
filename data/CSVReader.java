@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A utility class for reading data from CSV (comma-separated value) files.
- * Each line of the CSV file is split into a String array and return in a list.
+ * a class used to read data from CSV files
+ * Each line of the CSV file is split into a String array and returned in a list.
  */
 public class CSVReader {
 

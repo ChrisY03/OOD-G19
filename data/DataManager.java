@@ -1,6 +1,6 @@
 package data;
 
-import model.Student;
+import People.Student;
 import java.util.*;
 
 public class DataManager {
