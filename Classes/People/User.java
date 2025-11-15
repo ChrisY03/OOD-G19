@@ -5,7 +5,7 @@ public abstract class User {
     protected String password;
     protected String userType; // Student, lecturer, staff
 
-    public User(String Id, String name, String email, String password,
+    public User(String id, String name, String email, String password,
      String userType) {
         this.id = id;
         this.name = name;
