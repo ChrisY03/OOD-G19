@@ -43,7 +43,7 @@ public class Module {
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.moduleLecHours = moduleLecHours;
-        this.moduleLabHours = moduleLabours;
+        this.moduleLabHours = moduleLabHours;
         this.tutHours = tutHours;
     }
 
