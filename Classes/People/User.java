@@ -32,18 +32,6 @@ public abstract class User {
     }
 
     /**
-     * Creates a simplified User object.
-     * This constructor is used when only the user's name and role are needed,
-     * without ID, email or password details.
-     * @param name the user's name
-     * @param userType the role of the user
-     */
-    public User(String name, String userType) {
-        this.name = name;
-        this.userType = userType;
-    }
-
-    /**
      *
      * @return users specific UL id
      */
