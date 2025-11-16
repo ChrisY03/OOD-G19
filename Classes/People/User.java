@@ -47,7 +47,7 @@ public abstract class User {
      *
      * @return users specific UL id
      */
-    public String getid() {
+    public String getId() {
         return id;
     }
 
@@ -81,23 +81,19 @@ public abstract class User {
      * represents a login system where the user is prompted to
      * enter id and password and compares the input to a stored
      * users info (id, password)
-     * @param identered users id entered
+     * @param idEntered users id entered
      * @param passwordEntered users password entered
      * @return true if login details match, false if no match
      */
-    public boolean idLogin(String identered, String passwordEntered) {
-        return this.id.equals(identered) && password.equals(passwordEntered); //Checks if inputted password matches user password;
+    public boolean idLogin(String idEntered, String passwordEntered) {
+        if (id == null || password == null) {
+            return false;
+        }
+        return this.id.equals(idEntered) && password.equals(passwordEntered); //Checks if inputted password matches user password;
     }
 
     /**
      * Each user type must define how they view a timetable.
      */
     public abstract void viewTimetable();
-
-
-
-
-
-
-
 }
