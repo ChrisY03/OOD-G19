@@ -6,20 +6,29 @@ package People;
  * identifies the key attributes of a user in UL and what
  * is shared among a lecturer, admin and student
  */
-
 public abstract class User {
+    
+    /** UL user ID. */
     protected String id;
+
+    /** Full name of the user. */
     protected String name;
+
+    /** UL email address of the user. */
     protected String email;
+
+    /** User's password. */
     protected String password;
+
+    /** The type of user: "Student", "Lecturer", or "Admin". */
     protected String userType;
 
     /**
      * A constructor (User) with unique attributes of a user in UL
-     * @param id   users specific UL id
-     * @param name  users name
-     * @param email  users UL email
-     * @param password users password in which they selected
+     * @param id   user's specific UL id
+     * @param name  user';s name
+     * @param email  user's UL email
+     * @param password user's password in which they selected
      * @param userType (Lecturer, student, admin)
      */
     public User(String id, String name, String email, String password,
@@ -66,7 +75,7 @@ public abstract class User {
     // no other class or user should be able to read it directly once its stored
 
     /**
-     * represents a login system where the user is prompted to
+     * Represents a login system where the user is prompted to
      * enter id and password and compares the input to a stored
      * users info (id, password)
      * @param idEntered users id entered
