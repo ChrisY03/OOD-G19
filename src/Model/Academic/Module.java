@@ -1,3 +1,5 @@
+package Academic;
+
 import java.util.ArrayList;
 
 /**
@@ -39,7 +41,7 @@ public class Module {
      * @param moduleLabours  number of lab hours weekly
      * @param tutHours       number of tutorial hours weekly
      */
-    public Module(String moduleName, String moduleCode, int moduleLecHours, int moduleLabours, int tutHours) {
+    public Module(String moduleName, String moduleCode, int moduleLecHours, int moduleLabHours, int tutHours) {
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.moduleLecHours = moduleLecHours;

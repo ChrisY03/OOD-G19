@@ -1,3 +1,5 @@
+package Academic;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,8 @@ public class Programme {
      * The list of semesters in the programme.
      * Each semester has several modules.
      */
-    private List<ProgrammeSemester> semesters = new ArrayList<>();
+   
+    //private List<ProgrammeSemester> semesters = new ArrayList<>();
 
     /**
      * Creates an empty Programme object.
@@ -56,8 +59,8 @@ public class Programme {
      * 
      * @return list of ProgrammeSemester objects
      */
-    public List<ProgrammeSemester> getSemesters() {
-        return semesters;
+   // public List<ProgrammeSemester> getSemesters() {
+       // return semesters;
     }
 
     /**
@@ -65,7 +68,7 @@ public class Programme {
      * 
      * @param semester the semester to add
      */
-    public void addSemester(ProgrammeSemester semester) {
-        semesters.add(semester);
-    }
-}
+   // public void addSemester(ProgrammeSemester semester) {
+  //      semesters.add(semester);
+    
+

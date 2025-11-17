@@ -27,7 +27,7 @@ public class Student extends User {
     }
     
     @Override
-    public void viewTimeTable() {
+    public void viewTimetable() {
         System.out.println("Timetable for " + name + " (" + programmeID + " Year: " + year + ")");
     }
 
