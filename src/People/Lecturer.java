@@ -10,16 +10,29 @@ public class Lecturer extends User {
     private List<String> modules;
 
     /**
-     * Creates a Lecturer object.
-     *
+     * Constructor for Lecturer.
+     * @param id the lecturer's ID
      * @param name the lecturer's name
+     * @param email the lecturer's email
+     * @param password the lecturer's password
+     * @param department the lecturer's department
      */
     public Lecturer(String id, String name, String email, String password, String department) {
         super(id, name, email, password, "Lecturer");
+        this.department = department;
+        this.modules = new ArrayList<>();
     }
+    /**
+     * Gets the lecturer's department.
+     * @return the department
+     */
     public String getDepartment() {
         return department;
     }
+    /**
+     * Gets the list of modules taught by the lecturer.
+     * @return the list of modules
+     */
     public List<String> getModules() {
         return modules;
     }
