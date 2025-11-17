@@ -1,7 +1,8 @@
 package People;
 
 /**
- * Represents an administrative user who can manage users and timetables.
+ * Represents an administrative user who can manage users and timetables and
+ * includes key details such as admin ID, name, email, and password.
  */
 public class Admin extends User {
 

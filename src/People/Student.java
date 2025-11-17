@@ -1,6 +1,8 @@
 package People;
 /**
- * 
+ *  Represents a student in UL and their key details such as
+ * student ID, name, email, password, course programme ID 
+ * and year of study.
  */
 
 public class Student extends User {

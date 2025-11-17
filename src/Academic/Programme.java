@@ -2,7 +2,9 @@ package Academic;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *     Represents an academic programme/course offered by the university.
+ */
 public class Programme {
 
     /** The programme's unique code. */

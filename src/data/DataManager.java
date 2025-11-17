@@ -36,9 +36,9 @@ public class DataManager {
                 String password = row[3];
                 String programme = row[4];
                 int year = Integer.parseInt(row[5]);
-                String group = row[6];
+                
 
-                students.add(new Student(id, name, email, password, programme, year, group));
+                students.add(new Student(id, name, email, password, programme, year));
 
             } catch (Exception e) {
                 System.err.println("Error reading student row - skipping entry.");

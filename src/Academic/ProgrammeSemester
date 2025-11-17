@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a semester within a programme.
- * Each semester has a number and a list of modules taught during that semester.
+ * Represents a semester within a programme,
+ * each semester has a number and a list of modules taught during that semester.
  */
 public class ProgrammeSemester {
 

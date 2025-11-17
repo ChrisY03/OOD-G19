@@ -3,7 +3,9 @@ package People;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Represents a lecturer in the university.
+ * Represents a lecturer in the university and their key details
+ * such as their ID, name, email, password, department and
+ * modules they teach.
  */
 public class Lecturer extends User {
     private final String department;

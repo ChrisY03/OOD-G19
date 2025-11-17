@@ -3,7 +3,7 @@ package Academic;
 import java.util.ArrayList;
 
 /**
- * Represents a module. Each module has a name, code, and 
+ * Represents a module, each module has a name, code, and 
  * the number of lecture, lab and tutorial hours required weekly.
  */
 public class Module {

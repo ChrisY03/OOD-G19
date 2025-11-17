@@ -1,8 +1,8 @@
 package Room;
 
 /**
- * Represents a teaching room in the university.
- * Each room has a room ID, seating capacity and indicates whether the room is a lab or a classroom.
+ * Represents a teaching room in the university and
+ * each room has a room ID, seating capacity and indicates whether the room is a lab or a classroom.
  */
 public class Room {
 

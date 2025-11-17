@@ -1,10 +1,10 @@
 package People;
 
 /**
- * Demonstrates a user (lecturer, student, admin)
- * works as an abstract superclass for each user type
+ * Demonstrates a user (lecturer, student, admin) and
+ * works as an abstract superclass for each user type and
  * identifies the key attributes of a user in UL and what
- * is shared among a lecturer, admin and student
+ * is shared among a lecturer, admin and student.
  */
 public abstract class User {
 
