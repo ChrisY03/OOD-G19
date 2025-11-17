@@ -2,7 +2,7 @@
  * Represents a single scheduled class in the timetable.
  * Stores details such as the module, lecturer, room, day, and time.
  */
-public class TimetableEntry {
+public class ScheduledSession {
 
     /** The code of the module. */
     private String moduleCode;
