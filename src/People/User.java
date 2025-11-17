@@ -7,7 +7,7 @@ package People;
  * is shared among a lecturer, admin and student
  */
 public abstract class User {
-    
+
     /** UL user ID. */
     protected String id;
 
