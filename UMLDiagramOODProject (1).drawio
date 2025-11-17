@@ -103,7 +103,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WdUzMfWW5KlAeKXBej5u-16" value="TimetableEntry" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="WdUzMfWW5KlAeKXBej5u-16" value="ScheduledSession" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="380" y="320" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WdUzMfWW5KlAeKXBej5u-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=0;" parent="1" source="WdUzMfWW5KlAeKXBej5u-18" edge="1">
