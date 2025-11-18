@@ -1,6 +1,8 @@
-/**
+package Model.Timetable;;
+
+/** 
  * this class represents a single block of time in the timetable.
- *A Timeslot keeps track of the day of the week, the hour a starts,
+ * A Timeslot keeps track of the day of the week, the hour a starts,
  * and how long the class lasts. The scheduler will use Timeslot objects
  * to check if two classes clash with each other.
  *

@@ -1,5 +1,8 @@
-package Timetable;
+package Model.Timetable;
 
+import Model.Academic.Module;
+import Model.People.Lecturer;
+import Model.Room.Room;
 /**
  * Represents a single scheduled class in the timetable.
  * Stores details such as the module, lecturer, room, day, and time.
@@ -7,74 +10,66 @@ package Timetable;
 public class ScheduledSession {
 
     /** The code of the module. */
-    private Module moduleCode;
+    private Module module;
 
     /** The name of the lecturer. */
-    private Lecturer lecturerName;
+    private Lecturer lecturer;
 
     /** The ID of the room where the class takes place. */
-    private Room roomId;
+    private Room room;
 
     /** The day of the week and time the class is scheduled for. */
     private Timeslot timeslot;
 
     /**
-     * Creates an empty TimetableEntry object.
+     * Creates an empty ScheduledSession object.
      * Allows the entry to be created before all details are known.
      */
-    public TimetableEntry(){
+    public ScheduledSession(){
     }
 
     /**
-     * Creates a TimetableEntry object.
+     * Creates a ScheduledSession object.
      *
-     * @param moduleCode the module code
-     * @param lecturerName the lecturer teaching the class
-     * @param roomId the room where the class is held
+     * @param module the module being taught
+     * @param lecturer the lecturer teaching the class
+     * @param room the room where the class is held
      * @param day the day the class takes place
      * @param time the time the class begins
      */
-    public TimetableEntry(Module moduleCode, Lecturer lecturerName, Room roomId, Timeslot timeslot) {
-        this.moduleCode = moduleCode;
-        this.lecturerName = lecturerName;
-        this.roomId = roomId;
-        this.day = day;
-        this.time = time;
+    public ScheduledSession(Module module, Lecturer lecturer, Room room, Timeslot timeslot) {
+        this.module = module;
+        this.lecturer = lecturer;
+        this.room = room;
+        this.timeslot = timeslot;
     }
 
     /**
      * @return the module code for this class
      */
-    public String getModuleCode() {
-        return moduleCode;
+    public Module getModule() {
+        return module;
     }
 
     /**
      * @return the name of the lecturer
      */
-    public String getLecturerName() {
-        return lecturerName;
+    public Lecturer getLecturer() {
+        return lecturer;
     }
 
     /**
-     * @return the room ID
+     * @return the room
      */
-    public String getRoomId() {
-        return roomId;
-    }
-
-    /**
-     * @return the day of the class
-     */
-    public String getDay() {
-        return day;
+    public Room getRoom() {
+        return room;
     }
 
     /**
      * @return the time of the class
      */
-    public String getTime() {
-        return time;
+    public Timeslot getTimeslot() {
+        return timeslot;
     }
 
     /**
@@ -84,10 +79,13 @@ public class ScheduledSession {
      */
     @Override
     public String toString() {
-        return "Module: " + moduleCode +
-                " | Lecturer: " + lecturerName +
-                " | Room: " + roomId +
-                " | Day: " + day +
-                " | Time: " + time;
+        return module.getModuleCode() +
+                " | " + lecturer.getName() +
+                " | " + room.getRoomId() +
+                " | " + timeslot.toString();
     }
+    public boolean sameTimeWith(ScheduledSession other) {
+        return (this.room.equals(other.room) || this.lecturer.equals(other.lecturer))
+                && this.timeslot.overlaps(other.getTimeslot());
+}
 }

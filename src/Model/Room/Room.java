@@ -1,4 +1,4 @@
-package Room;
+package Model.Room;
 
 /**
  * Represents a teaching room in the university and
