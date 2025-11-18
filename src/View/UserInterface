@@ -1,0 +1,74 @@
+package view;
+
+import java.util.Scanner;
+
+/**
+ * This class handles all the user interaction through the command line.
+ * It only shows menus, gets input and prints messages.
+ * The controller will deal with the logic, not this class.
+ */
+public class UserInterface {
+
+    private final Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Shows the main menu when the program starts.
+     */
+    public void showMainMenu() {
+        System.out.println("\n===== UL Timetabling System =====");
+        System.out.println("1. Login");
+        System.out.println("2. Exit");
+        System.out.print("Choose an option: ");
+    }
+
+    /**
+     * Shows a different menu depending on the type of user that logged in.
+     */
+    public void showUserMenu(String userType) {
+        System.out.println("\n===== " + userType + " Menu =====");
+
+        //All users can view the timetable
+        System.out.println("1. View Timetable");
+
+        //Only the admins get the extra options
+        if (userType.equals("Admin")) {
+            System.out.println("2. Add User");
+            System.out.println("3. Remove User");
+        }
+
+        System.out.println("0. Logout");
+        System.out.print("Choose an option: ");
+    }
+
+    /**
+     * Reads a line of user input.
+     *
+     * @return the input string
+     */
+    public String getInput() {
+        return scanner.nextLine();
+    }
+
+    /**
+     * Gets a single input with a prompt.
+     */
+    public String prompt(String message) {
+        System.out.print(message + ": ");
+        return scanner.nextLine();
+    }
+
+    /**
+     * Displays a message from the controller.
+     */
+    public void showMessage(String message) {
+        System.out.println(message);
+    }
+
+    /**
+     * Shows timetable lines sent from teh controller.
+     */
+    public void showTimetable(String timetable) {
+        System.out.println("\n--- Timetable ---");
+        System.out.println(timetable);
+    }
+}
