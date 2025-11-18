@@ -7,19 +7,16 @@ package Timetable;
 public class ScheduledSession {
 
     /** The code of the module. */
-    private String moduleCode;
+    private Module moduleCode;
 
     /** The name of the lecturer. */
-    private String lecturerName;
+    private Lecturer lecturerName;
 
     /** The ID of the room where the class takes place. */
-    private String roomId;
+    private Room roomId;
 
-    /** The day of the week the class is scheduled for. */
-    private String day;
-
-    /** The time the class begins. */
-    private String time;
+    /** The day of the week and time the class is scheduled for. */
+    private Timeslot timeslot;
 
     /**
      * Creates an empty TimetableEntry object.
@@ -37,7 +34,7 @@ public class ScheduledSession {
      * @param day the day the class takes place
      * @param time the time the class begins
      */
-    public TimetableEntry(String moduleCode, String lecturerName, String roomId, String day, String time) {
+    public TimetableEntry(Module moduleCode, Lecturer lecturerName, Room roomId, Timeslot timeslot) {
         this.moduleCode = moduleCode;
         this.lecturerName = lecturerName;
         this.roomId = roomId;
