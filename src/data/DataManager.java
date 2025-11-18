@@ -1,6 +1,6 @@
 package data;
+import src.Student;
 
-import People.Student;
 import java.util.*;
 
 /**
