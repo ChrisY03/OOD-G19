@@ -1,0 +1,13 @@
+studentId,name,email,password,programmeId,year,groupId
+24400001,Chris Young,24400001@studentmail.ul.ie,pass123,LM174,1,LM174-Y1
+24400002,Aoife Murphy,24400002@studentmail.ul.ie,pass123,LM174,1,LM174-Y1
+24400003,Liam O'Brien,24400003@studentmail.ul.ie,pass123,LM174,1,LM174-Y1
+24400004,Sarah Kelly,24400004@studentmail.ul.ie,pass123,LM174,2,LM174-Y2
+24400005,Mark Nolan,24400005@studentmail.ul.ie,pass123,LM174,2,LM174-Y2
+24400006,Eimear Ryan,24400006@studentmail.ul.ie,pass123,LM174,2,LM174-Y2
+24400007,Dara Byrne,24400007@studentmail.ul.ie,pass123,LM174,3,LM174-Y3
+24400008,Niamh Lyons,24400008@studentmail.ul.ie,pass123,LM174,3,LM174-Y3
+24400009,Sean Walsh,24400009@studentmail.ul.ie,pass123,LM174,3,LM174-Y3
+24400010,Orla Fitzgerald,24400010@studentmail.ul.ie,pass123,LM174,4,LM174-Y4
+24400011,Patrick Hanley,24400011@studentmail.ul.ie,pass123,LM174,4,LM174-Y4
+24400012,Grainne Doyle,24400012@studentmail.ul.ie,pass123,LM174,4,LM174-Y4
