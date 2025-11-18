@@ -18,7 +18,7 @@ public class Programme {
      * Each semester has several modules.
      */
    
-    //private List<ProgrammeSemester> semesters = new ArrayList<>();
+    private List<ProgrammeSemester> semesters = new ArrayList<>();
 
     /**
      * Creates an empty Programme object.
@@ -56,21 +56,31 @@ public class Programme {
         return name;
     }
 
-    /**
-     * Returns the list of semesters in the programme.
-     * 
-     * @return list of ProgrammeSemester objects
-     */
-   // public List<ProgrammeSemester> getSemesters() {
-       // return semesters;
-    }
+/**
+ * Returns the list of semesters in the programme.
+ * 
+ * @return list of ProgrammeSemester objects
+ */
+public List<ProgrammeSemester> getSemesters() {
+    return semesters;
+}
 
-    /**
-     * Adds a semester to the programme.
-     * 
-     * @param semester the semester to add
-     */
-   // public void addSemester(ProgrammeSemester semester) {
-  //      semesters.add(semester);
+/**
+ * Adds a semester to the programme.
+ * 
+ * @param semester the semester to add
+ */
+public void addSemester(ProgrammeSemester semester) {
+    semesters.add(semester);
+}
+
+/**
+ * Minimal ProgrammeSemester nested class so the type is defined.
+ * Extend this with real fields/behaviour as needed.
+ */
+public static class ProgrammeSemester {
+    // placeholder for semester data (e.g., semester number, modules list)
+}
+}
     
 
