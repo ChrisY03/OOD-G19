@@ -1,12 +1,12 @@
-package data;
-import src.Student;
+package Data;
+import Model.People.Student;
 
 import java.util.*;
 
 /**
  * The DataManager class is responsible for loading data from CSV files
  * and converting it into objects used by the system.
- */
+ */                                                                         
 public class DataManager {
 
     /**

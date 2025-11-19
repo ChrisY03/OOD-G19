@@ -1,4 +1,4 @@
-package People;
+package model.people;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * such as their ID, name, email, password, department and
  * modules they teach.
  */
-public class Lecturer extends User {
+public class Lecturer extends user {
     private final String department;
     private List<String> modules;
 

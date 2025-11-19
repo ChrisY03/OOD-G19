@@ -1,4 +1,4 @@
-package People;
+package Model.People;
 /**
  *  Represents a student in UL and their key details such as
  * student ID, name, email, password, course programme ID 

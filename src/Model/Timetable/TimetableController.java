@@ -1,11 +1,12 @@
-package Model.Timetable;
+package model.timetable;
 
-import Model.Timetable.ScheduledSession;
-import Model.Timetable.Timeslot;
-import Model.People.Lecturer;
-import Model.Room.Room;
-import Model.Academic.Module;
 import data.DataManager;
+import model.academic.Module;
+import model.people.Lecturer;
+import model.room.Room;
+import model.timetable.ScheduledSession;
+import model.timetable.Timeslot;
+
 import java.util.ArrayList;
 import java.util.List;
 

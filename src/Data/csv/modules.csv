@@ -1,0 +1,20 @@
+moduleCode,title,year,semester,programmeId,lectureHours,labHours,tutorialHours
+CS4011,Programming 1,1,1,LM174,3,1,1
+MS4012,Discrete Mathematics,1,1,LM174,3,0,1
+CS4013,Computer Systems 1,1,2,LM174,3,1,0
+MS4014,Linear Algebra,1,2,LM174,3,0,1
+
+CS4211,Data Structures and Algorithms,2,3,LM174,3,1,0
+CS4212,Object Oriented Programming,2,3,LM174,3,1,1
+MS4213,Probability and Statistics,2,4,LM174,3,0,1
+CS4214,Computer Architecture,2,4,LM174,3,1,0
+
+CS4311,Machine Learning 1,3,5,LM174,3,1,1
+CS4312,Databases,3,5,LM174,3,1,0
+CS4313,Operating Systems,3,6,LM174,3,1,0
+CS4314,Networks and Security,3,6,LM174,3,1,0
+
+CS4411,Deep Learning,4,7,LM174,3,1,1
+CS4412,Reinforcement Learning,4,7,LM174,3,1,0
+MS4413,AI Ethics and Society,4,8,LM174,3,0,1
+CS4414,Distributed Systems,4,8,LM174,3,1,0
