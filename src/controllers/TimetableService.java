@@ -31,8 +31,8 @@ public class TimetableService {
 
     //Querying timetables
     public List<ScheduledSession> getAllTimeTable(){
-        return new ArrayList<>(sessions);
-    }
+        return new ArrayList<>(allSessions);
+    } 
     
     public List<ScheduledSession> getStudentTimetable(Student id){
         List<ScheduledSession> result = new ArrayList<>();
@@ -94,20 +94,20 @@ public class TimetableService {
 
     }
 
-    public void deleteSession(int sessionId){
+    public boolean deleteSession(int sessionId){
 
     }
     
-    public void saveTimetable(){
+    public boolean saveTimetable(){
 
     }
 
     //Useful for Scheduler
-    public void getSessionsForTimeandRoom(day, start, end, roomCode){ }
+    public List<ScheduledSession> getSessionsForTimeandRoom(Timmeday, start, end, roomCode){ }
 
-    public void getSessionsLecturer(day, start, end, lecturerId){ }
+    public List<ScheduledSession> getSessionsLecturer(day, start, end, lecturerId){ }
 
-    public void getSessionsForAudience(day, start, end, audienceId){ }
+    public List<ScheduledSession> getSessionsForAudience(day, start, end, audienceId){ }
 
     
 }
