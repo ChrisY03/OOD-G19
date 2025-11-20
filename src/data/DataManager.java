@@ -30,10 +30,9 @@ public class DataManager {
 
         for (String[] row : data) {
 
-            if (row.length < 7) {
-                System.err.println("Skipping invalid row in students CSV.");
-                continue;
-            }
+            if (row.length < 7 || row[0].startsWith("studentId")) continue;) {
+                
+            
 
             try {
                 String id = row[0].trim();
@@ -47,7 +46,7 @@ public class DataManager {
                 students.add(new Student(id, name, email, password, programme, year));
 
             } catch (Exception e) {
-                System.err.println("Error reading student row - skipping entry." + Arrays.toString(row));
+                System.err.println("Error in students.csv: " + Arrays.toString(row));
             }
         }
         return students;
