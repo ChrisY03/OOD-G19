@@ -1,5 +1,5 @@
 package data;
-import Model.People.Student;
+
 
 import Model.People.Student;
 import Model.Room.Room;
@@ -7,6 +7,7 @@ import Model.Academic.Module;
 import Model.People.Lecturer;
 import Model.Timetable.ScheduledSession;
 import Model.Timetable.Timeslot;
+import Model.Academic.Programme;
 import java.util.*;
 
 /**
