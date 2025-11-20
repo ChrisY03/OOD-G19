@@ -9,6 +9,7 @@ import Model.Room.Room;
  */
 public class ScheduledSession {
 
+    private 
     /** The code of the module. */
     private Module module;
 
@@ -57,6 +58,8 @@ public class ScheduledSession {
     public Lecturer getLecturer() {
         return lecturer;
     }
+
+
 
     /**
      * @return the room

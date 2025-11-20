@@ -4,6 +4,7 @@ import Model.Timetable.ScheduledSession;
 import Model.People.Student;
 import Model.Room.Room;
 import Model.Academic.Programme;
+import Model.People.Lecturer;
 import data.DataManager;
 
 import java.util.List;
@@ -12,55 +13,84 @@ import java.util.ArrayList;
 
 
 public class TimetableService {
-    private List<ScheduledSessions> allSessions;
+    private List<ScheduledSession> allSessions;
     private List<Student> students;
     private List<Room> rooms;
     private List<Programme> programmes;
-    private DataManager dataManager;
+
 
     public TimetableService() {
         allSessions = new ArrayList<>();
         students = new ArrayList<>();
         rooms = new ArrayList<>();
         programmes = new ArrayList<>();
-        dataManager = new DataManager();
+
     }
+
+
 
     //Querying timetables
-    public void getAllSessions extends DataManager(){
-
-    }
-
-    public void getSessionId(sessionId){
-
+    public List<ScheduledSession> getAllTimeTable(){
+        return new ArrayList<>(sessions);
     }
     
-    public void getStudentTimetable(studentId){
+    public List<ScheduledSession> getStudentTimetable(Student id){
+        List<ScheduledSession> result = new ArrayList<>();
+        for (ScheduledSession session : allSessions) {
+            if (session.getStudent().equals(id)) {
+                result.add(session);
+            }
+        }
+        return result; 
+    }
+
+    public List<ScheduledSession> getLecturerTimetable(Lecturer id){
+        List<ScheduledSession> result = new ArrayList<>();
+        for (ScheduledSession session : allSessions) {
+            if (session.getLecturer().equals(id)) {
+                result.add(session);
+            }
+        }
+        return result;        
+    }
+
+    public List<ScheduledSession> getRoomTimetable(Room room){
+        List<ScheduledSession> result = new ArrayList<>();
+        for (ScheduledSession session : allSessions) {
+            if (session.getRoom().equals(room)) {
+                result.add(session);
+            }
+        }
+        return result; 
+    }
+
+    public List<ScheduledSession> getProgrammeTimetable(programmeCode, semester){
 
     }
 
-    public void getLecturerTimetable(lecturerId){
-
-    }
-
-    public void getRoomTimetable(roomCode){
-
-    }
-
-    public void getProgrammeTimetable(programmeCode, semester){
-
-    }
-
-    public void getModuleSessions(moduleCode){
-
+    public List<ScheduledSession> getModuleTimetable(Module module){
+        List<ScheduledSession> result = new ArrayList<>();
+        for (ScheduledSession session : allSessions) {
+            if (session.getModule().equals(module)) {
+                result.add(session);
+            }
+        }
+        return result; 
     }
 
     //Methods to write/change timetables
-    public void addSession(ScheduledSession newSession){
-
+    public boolean addSession(ScheduledSession newSession) {
+        for (ScheduledSession session : allSessions) {
+            if (session.sameTimeWith(newSession)) {
+                // clash – caller decides what to print
+                return false;
+            }
+        }
+        allSessions.add(newSession);
+        return true;
     }
 
-    public void updateSession(ScheduledSession updatedSession){
+    public boolean updateSession(ScheduledSession updatedSession){
 
     }
 

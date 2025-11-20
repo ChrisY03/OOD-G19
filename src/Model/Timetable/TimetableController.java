@@ -1,49 +1,40 @@
 package Model.Timetable;
 
-import data.DataManager;
-import Model.Academic.Module;
-import Model.People.Lecturer;
-import Model.Room.Room;
-import Model.Timetable.ScheduledSession;
-import Model.Timetable.Timeslot;
-
-import java.util.ArrayList;
 import java.util.List;
+import Model.People.Lecturer;
+import controllers.TimetableService;
 
 
 public class TimetableController {
-    private List<ScheduledSession> sessions;
-    private DataManager dataManager;
 
-    public TimetableController() {
-        sessions = new ArrayList<>();
-        dataManager = new DataManager();
+    private final TimetableService timetableService;
+
+    public TimetableController(TimetableService timetableService) {
+        this.timetableService = timetableService;
     }
 
-    public boolean addSession(ScheduledSession newSession) {
-        for (ScheduledSession session : sessions) {
-            if (session.sameTimeWith(newSession)) {
-                System.out.println("Unable to add session : Interferes with " + session);
-                return false;
-            }
+    public void addSession(ScheduledSession newSession) {
+        boolean added = timetableService.addSession(newSession);
+        if (added) {
+            System.out.println("Session added: " + newSession);
+        } else {
+            System.out.println("Unable to add session: clashes with an existing session.");
         }
-        sessions.add(newSession);
-        System.out.println("Session added: " + newSession);
-        return true;
     }
+
     public void viewAllSessions() {
         System.out.println("\nAll Scheduled Sessions:");
-        for (ScheduledSession session : sessions) {
+        List<ScheduledSession> allSessions = timetableService.getAllTimeTable();
+        for (ScheduledSession session : allSessions) {
             System.out.println(session);
         }
     }
 
-    public void viewLecturerTimetable(Lecturer lecturer) {
-        System.out.println("\nTimetable for Lecturer: " + lecturer.getName());
-        for (ScheduledSession session : sessions) {
-            if (session.getLecturer().equals(lecturer)) {
-                System.out.println(session);
-            }
+    public void viewLecturerTimetable(Lecturer id) {
+        System.out.println("\nTimetable for Lecturer: " + id.getName());
+        List<ScheduledSession> allSessions = timetableService.getLecturerTimetable(id);
+        for (ScheduledSession session : allSessions) {
+            System.out.println(session);
         }
     }
 
