@@ -30,18 +30,18 @@ public class DataManager {
             }
 
             try {
-                String id = row[0];
-                String name = row[1];
-                String email = row[2];
-                String password = row[3];
-                String programme = row[4];
-                int year = Integer.parseInt(row[5]);
-                
+                String id = row[0].trim();
+                String name = row[1].trim();
+                String email = row[2].trim();
+                String password = row[3].trim();
+                String programme = row[4].trim();
+                int year = Integer.parseInt(row[5].trim());
+                String group = row[6].trim();
 
                 students.add(new Student(id, name, email, password, programme, year));
 
             } catch (Exception e) {
-                System.err.println("Error reading student row - skipping entry.");
+                System.err.println("Error reading student row - skipping entry." + Arrays.toString(row));
             }
         }
         return students;
