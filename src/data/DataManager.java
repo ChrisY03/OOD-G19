@@ -30,10 +30,8 @@ public class DataManager {
 
         for (String[] row : data) {
 
-            if (row.length < 7 || row[0].startsWith("studentId")) continue;) {
+            if (row.length < 7 || row[0].startsWith("studentId")) continue; 
                 
-            
-
             try {
                 String id = row[0].trim();
                 String name = row[1].trim();
@@ -57,19 +55,22 @@ public class DataManager {
         List<String[]> data = CSVReader.readCSV(filePath);
 
         for (String[] row : data) {
-            if (row.length < 3) continue;
+            if (row.length < 4 || row[0].startsWith("roomCode")) continue;
 
             try {
                 String id = row[0].trim();
-                int capacity = Integer.parseInt(row[1].trim());
+                String building = row[1].trim();
+                String type = row[2].trim();
+                int capacity = Integer.parseInt(row[3].trim());
                 boolean lab = Boolean.parseBoolean(row[2].trim());
                 rooms.add(new Room(id, capacity, lab));
             } catch (Exception e) {
-                System.err.println("Skipping invalid roomm row: " + Arrays.toString(row));
+                System.err.println("Error in rooms.csv: " + Arrays.toString(row));
             }
             }
             return rooms;
         }
+        
         public static List<ScheduledSession> loadSessions(String filePath) {
             List<ScheduledSession> sessions = new ArrayList<>();
             List<String[]> data = CSVReader.readCSV(filePath);
