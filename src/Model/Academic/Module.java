@@ -1,4 +1,4 @@
-package Academic;
+package Model.Academic;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
-package model.timetable;
+package Model.Timetable;
 
-import model.academic.Module;
-import model.people.Lecturer;
-import model.room.Room;
+import Model.Academic.Module;
+import Model.People.Lecturer;
+import Model.Room.Room;
 /**
  * Represents a single scheduled class in the timetable.
  * Stores details such as the module, lecturer, room, day, and time.

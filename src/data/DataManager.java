@@ -1,4 +1,4 @@
-package Data;
+package data;
 import Model.People.Student;
 
 import java.util.*;
