@@ -70,22 +70,79 @@ public class DataManager {
             }
             return rooms;
         }
-        
+
+        public static List<Module> loadModules(String filePath) {
+            List<Module> modules = new ArrayList<>();
+            List<String[]> data = CSVReader.readCSV(filePath);
+
+            for (String[] row : data) {
+                if (row.length < 8 || row[0].startsWith("moduleCode")) continue;
+
+                try {
+                    String code = row[0].trim();
+                    String title = row[1].trim();
+                    int year = Integer.parseInt(row[2].trim());
+                    int semester = Integer.parseInt(row[3].trim());
+                    String programmeId = row[4].trim();
+                    int lec = Integer.parseInt(row[5].trim());
+                    int lab = Integer.parseInt(row[6].trim());
+                    int tut = Integer.parseInt(row[7].trim());
+
+                    modules.add(new Module(title, code, lec, lab, tut));
+                } catch (Exception e) {
+                    System.err.println("Error in modules.csv: " + Arrays.toString(row));
+                }
+                }
+                return modules;
+            
+        }
+
+        public static List<Programme> loadProgrammes(String filePath) {
+            List<Programme> programmes = new ArrayList<>();
+            List<String[]> data = CSVReader.readCSV(filePath);
+
+            for (String[] row : data) {
+                if (row.length < 2 || row[0].startsWith("programmeId")) continue;
+
+
+                try {
+                    String id = row[0].trim();
+                    String name = row[1].trim();
+                    programmes.add(new Programme(id.hashCode(), name));
+                } catch (Exception e) {
+                    System.err.println("Error in programmes.csv: " + Arrays.toString(row));
+                }
+                }
+                return programmes;
+            
+        }
+
+        public static List<String[]> loadGroups(String filePath) {
+            List<String[]> groups = new ArrayList<>();
+            List<String[]> data = CSVReader.readCSV(filePath);
+
+            for (String[] row : data) {
+                if (row.length < 4 || row[0].startsWith("groupId")) continue;
+                groups.add(row);
+            }
+            return groups;
+        }
+
         public static List<ScheduledSession> loadSessions(String filePath) {
             List<ScheduledSession> sessions = new ArrayList<>();
             List<String[]> data = CSVReader.readCSV(filePath);
 
             for (String[] row : data) {
-                if (row.length < 5) continue;
+                if (row.length < 10 || row[0].startsWith("sessionId")) continue;
 
                 try {
-                    Module module = new Module(row[0].trim(), "", 0, 0, 0);
-                    Lecturer lecturer = new Lecturer(row[1].trim(), "", "", "", "Department");
-                    Room room = new Room(row[2].trim(), 0, false);
-                    Timeslot timeslot = new Timeslot(row[3].trim(), Integer.parseInt(row[4].trim()), 1);
+                    Module module = new Module(row[1].trim(), "", 0, 0, 0);
+                    Lecturer lecturer = new Lecturer(row[7].trim(), "", "", "", "CSIS");
+                    Room room = new Room(row[6].trim(), 0, false);
+                    Timeslot timeslot = new Timeslot(row[3].trim(), Integer.parseInt(row[5].trim()), 1);
                     sessions.add(new ScheduledSession(module, lecturer, room, timeslot));
                 } catch (Exception e) {
-                    System.err.println("Skipping invalid session row: " + Arrays.toString(row));
+                    System.err.println("Error in scheduledsessions.csv: " + Arrays.toString(row));
                 }
             }
             return sessions;
