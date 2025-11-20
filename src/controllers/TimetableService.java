@@ -1,10 +1,30 @@
-package src.controllers;
+package controllers;
+
+import Model.Timetable.ScheduledSession;
+import Model.People.Student;
+import Model.Room.Room;
+import Model.Academic.Programme;
+import data.DataManager;
+
+import java.util.List;
+import java.util.ArrayList;
+
+
 
 public class TimetableService {
     private List<ScheduledSessions> allSessions;
     private List<Student> students;
     private List<Room> rooms;
     private List<Programme> programmes;
+    private DataManager dataManager;
+
+    public TimetableService() {
+        allSessions = new ArrayList<>();
+        students = new ArrayList<>();
+        rooms = new ArrayList<>();
+        programmes = new ArrayList<>();
+        dataManager = new DataManager();
+    }
 
     //Querying timetables
     public void getAllSessions extends DataManager(){
