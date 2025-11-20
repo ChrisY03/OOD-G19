@@ -63,14 +63,14 @@ public class DataManager {
                 String building = row[1].trim();
                 String type = row[2].trim();
                 int capacity = Integer.parseInt(row[3].trim());
-                boolean lab = Boolean.parseBoolean(row[2].trim());
+                boolean lab = type.equalsIgnoreCase("Laboratory");
                 rooms.add(new Room(id, capacity, lab));
             } catch (Exception e) {
                 System.err.println("Error in rooms.csv: " + Arrays.toString(row));
             }
-            }
-            return rooms;
         }
+            return rooms;
+    }
 
         public static List<Module> loadModules(String filePath) {
             List<Module> modules = new ArrayList<>();
@@ -140,7 +140,7 @@ public class DataManager {
                     Module module = new Module(row[1].trim(), "", 0, 0, 0);
                     Lecturer lecturer = new Lecturer(row[7].trim(), "", "", "", "CSIS");
                     Room room = new Room(row[6].trim(), 0, false);
-                    Timeslot timeslot = new Timeslot(row[3].trim(), Integer.parseInt(row[5].trim()), 1);
+                    Timeslot timeslot = new Timeslot(row[3].trim(), Integer.parseInt(row[4].trim()), Integer.parseInt(row[5].trim()));
                     sessions.add(new ScheduledSession(module, lecturer, room, timeslot));
                 } catch (Exception e) {
                     System.err.println("Error in scheduledsessions.csv: " + Arrays.toString(row));
