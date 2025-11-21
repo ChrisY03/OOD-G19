@@ -1,4 +1,4 @@
-package People;
+package Model.People;
 
 /**
  * Demonstrates a user (lecturer, student, admin) and

@@ -1,4 +1,4 @@
-package People;
+package Model.People;
 
 /**
  * Represents an administrative user who can manage users and timetables and
