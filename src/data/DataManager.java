@@ -3,13 +3,12 @@ package data;
 import Model.People.Student;
 import Model.People.Lecturer;
 import Model.Academic.Module;
-import Room.Room;
+import Model.Room.Room;
 import Model.Timetable.ScheduledSession;
 import Model.Timetable.Timeslot;
+import Model.Academic.Programme;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * The DataManager class is responsible for loading data from CSV files
@@ -17,7 +16,6 @@ import java.util.Map;
  */
 public final class DataManager {
 
-    private DataManager() {
 
         /**
          * Loads student data from a CSV file and converts each row into a Student.
@@ -27,30 +25,29 @@ public final class DataManager {
          */
         public static List<Student> loadStudents(String filePath) {
             List<Student> students = new ArrayList<>();
-            List<String[]> data = CSvReader.readCSV(filePath);
+            List<String[]> data = CSVReader.readCSV(filePath);
 
             for (String[] row : data) {
-                if (row.length < 6) {
-                    System.err.println("Skipping invalid row in students CSV.");
-                    continue;
-                }
-
+                if (row.length < 7 || row[0].startsWith("studentId")) continue;
+                
+                
                 try {
-                    String id = row[0];
-                    String name = row[1];
-                    String email = row[2];
-                    String password = row[3];
-                    String programme = row[4];
-                    int year = Integer.parseInt(row[5]);
-
-                    Students.add(new Student(id, name, email, password, programme, year));
+                    String id = row[0].trim();
+                    String name = row[1].trim();;
+                    String email = row[2].trim();
+                    String password = row[3].trim();
+                    String programme = row[4].trim();
+                    int year = Integer.parseInt(row[5].trim());
+                    String group = row[6].trim();
+                    
+                    students.add(new Student(id, name, email, password, programme, year));
                 } catch (Exception e) {
-                    System.err.println("Error reading student row - skipping entry.");
+                    System.err.println("Error in students.csv: " + Arrays.toString(row));
                 }
             }
             return students;
         }
-    }
+    
 
     /**
      * Loads lecturer data from a CSV file.
@@ -93,23 +90,23 @@ public final class DataManager {
         List<Room> rooms = new ArrayList();
         List<String[]> data = CSVReader.readCSV(filePath);
 
-        for (String[] row : data) {
-            if (row.length < 3) {
-                System.err.println("Skipping invalid row in rooms CSV.");
-                continue;
-            }
+         for (String[] row : data) {
+            if (row.length < 4 || row[0].startsWith("roomCode")) continue;
 
             try {
-                String roomId = row[0];
-                int capacity = Integer.parseInt(row[1]);
-                boolean isLab = Boolean.parseBoolean(row[2]);
-
-                rooms.add(new Room(roomId, capacity, isLab));
+                String id = row[0].trim();
+                String building = row[1].trim();
+                String type = row[2].trim();
+                int capacity = Integer.parseInt(row[3].trim());
+                boolean lab = type.equalsIgnoreCase("Laboratory");
+                rooms.add(new Room(id, capacity, lab));
             } catch (Exception e) {
-                System.err.println("Error reading room row - skipping entry.");
+                System.err.println("Skipping invalid roomm row: " + Arrays.toString(row));
+                System.err.println("Error in rooms.csv: " + Arrays.toString(row));
             }
+            }
+            return rooms;
         }
-        return rooms;
     }
 
     /**
@@ -123,96 +120,76 @@ public final class DataManager {
         List<String[]> data = CSVReader.readCSV(filePath);
 
         for (String[] row : data) {
-            if (row.length < 5) {
-                System.err.println("Skipping invalid row in modules CSV.");
-                continue;
-            }
+            if (row.length < 8 || row[0].startsWith("moduleCode")) continue;
+                
+            
 
             try {
-                String name = row[0];
-                String code = row[1];
-                int lecHours = Integer.parseInt(row[2]);
-                int labHours = Integer.parseInt(row [3]);
-                int tutHours = Integer.parseInt(row [4]);
+                String code = row[0].trim();
+                String title = row[1].trim();
+                int year = Integer.parseInt(row[2].trim());
+                int semester = Integer.parseInt(row[3].trim());
+                String programmeId = row[4].trim();
+                int lec = Integer.parseInt(row[5].trim());
+                int lab = Integer.parseInt(row[6].trim());
+                int tut = Integer.parseInt(row[7].trim());
 
-                modules.add(new Module(name, code, lecHours, labHours, tutHours));
+                modules.add(new Module(title, code, lec, lab, tut));
             } catch (Exception e) {
-                System.err,println("Error reading module row - skipping entry.");
+                System.err.println("Error in modules.csv: " + Arrays.toString(row));
             }
         }
         return modules;
     }
 
-    /**
-     * Loads scheduled sessions from CSV.
-     *
-     * Expected CSV format:
-     * ModuleCode, LecturerId, RoomId, Day, StartHour, Duration
-     */
-    public static List<ScheduledSession> loadSessions(
-            String filePath,
-            Map<String, Module> moduleByCode,
-            Map<String, Lecturer> lecturerById,
-            Map<String, Room> roomById) {
+   public static List<Programme> loadProgrammes(String filePath) {
+        List<Programme> programmes = new ArrayList<>();
+        List<String[]> data = CSVReader.readCSV(filePath);
 
+        for (String[] row : data) {
+            if (row.length < 2 || row[0].startsWith("programmeId")) continue;
+
+            try {
+                String id = row[0].trim();
+                String name = row[1].trim();
+                programmes.add(new Programme(id.hashCode(), name));
+            } catch (Exception e) {
+                System.err.println("Error in programmes.csv: " + Arrays.toString(row));
+            }
+        }
+        return programmes;
+    }
+
+    public static List<String[]> loadGroups(String filePath) {
+        List<String[]> groups = new ArrayList<>();
+        List<String[]> data = CSVReader.readCSV(filePath);
+
+        for (String[] row : data) {
+            if (row.length < 4|| row[0].startsWith("groupId")) continue;
+
+        }
+        return groups;
+    }
+
+    public static List<ScheduledSession> loadSessions(String filePath) {
         List<ScheduledSession> sessions = new ArrayList<>();
         List<String[]> data = CSVReader.readCSV(filePath);
 
-
         for (String[] row : data) {
-            if (row.length < 6) {
-                System.err.println("Skipping invalid row in sessions CSV.");
-                continue;
-            }
+           if (row.length < 10 || row[0].startsWith("sessionId")) continue;
 
             try {
-                String moduleCode = row[0];
-                String lecturerId = row[1];
-                String roomId = row[2];
-                String day = row[3];
-                int startHours = Integer.parseInt(row[4]);
-                int duration = Integer.parseInt(row[5]);
+                Module module = new Module(row[1].trim(), "", 0, 0, 0);
+                Lecturer lecturer = new Lecturer(row[7]trim(), "", "", "", "CSIS");
+                Room room = new Room(row[6].trim(), 0, false);
+                Timeslot timeslot = new Timeslot(row[3].trim(), row[4].trim(), row[5].trim());
 
-                Module module = moduleByCode.get(moduleCode);
-                Lecturer lecturer = lecturerById.get(lecturerId);
-                Room room = roomById.get(roomId);
-
-                if (module == null || lecturer == null || room == null) {
-                    System.err.println("Skipping session row - unknown module/lecturer/room.");
-                    continue;
-                }
-
-                Timeslot timeslot = new Timeslot(day, startHour, duration);
                 sessions.add(new ScheduledSession(module, lecturer, room, timeslot));
-
             } catch (Exception e) {
-                System.err.println("Error reading session row - skipping entry.");
+                System.err.println("Error in sessions.csv: " + Arrays.toString(row));
             }
         }
-
         return sessions;
     }
-
-    /**
-     * Saves schedules sessions to CSV in the same format used by loadSessions.
-     */
-    public static void saveSessions(String filePath, List<ScheduledSession> sessions) {
-        List<String[]> data = new ArrayList<>();
-
-        for (ScheduledSession session : sessions) {
-            String[] row = new String[] {
-                    session.getModule().getModuleCode(),
-                    session.getLecturer().getId(),
-                    session.getRoom().getRoomId(),
-                    session.getTimeslot().getDay(),
-                    String.valueOf(session.getTimeslot().getStartHours()),
-            String.valueOf(session.getTimeslot().getDuration())
-            };
-            data.add(row);
-        }
-
-        CSVWriter.writeCSV(filePath, data);
-
-    }
-    )
 }
+    
