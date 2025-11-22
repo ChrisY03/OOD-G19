@@ -107,7 +107,7 @@ public final class DataManager {
             }
             return rooms;
         }
-    }
+    
 
     /**
      * Loads Modules from CSV.
@@ -166,6 +166,7 @@ public final class DataManager {
 
         for (String[] row : data) {
             if (row.length < 4|| row[0].startsWith("groupId")) continue;
+            groups.add(row);
 
         }
         return groups;
@@ -180,9 +181,9 @@ public final class DataManager {
 
             try {
                 Module module = new Module(row[1].trim(), "", 0, 0, 0);
-                Lecturer lecturer = new Lecturer(row[7]trim(), "", "", "", "CSIS");
+                Lecturer lecturer = new Lecturer(row[7].trim(), "", "", "", "CSIS");
                 Room room = new Room(row[6].trim(), 0, false);
-                Timeslot timeslot = new Timeslot(row[3].trim(), row[4].trim(), row[5].trim());
+                Timeslot timeslot = new Timeslot(row[3].trim(), Integer.parseInt(row[4].trim()), Integer.parseInt(row[5].trim()));
 
                 sessions.add(new ScheduledSession(module, lecturer, room, timeslot));
             } catch (Exception e) {
